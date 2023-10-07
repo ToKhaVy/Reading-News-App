@@ -8,7 +8,6 @@ const btnNext = document.getElementById("btn-next");
 
 // Khởi tạo biến tổng số mẫu tin tức trả về từ API
 let totalResults = 0;
-getDataNews("us", 1);
 
 /////////////////////////////////////////////////
 // hàm lấy dữ liệu từ API (bất đồng bộ)
@@ -19,7 +18,7 @@ async function getDataNews(country, page) {
       `https://newsapi.org/v2/top-headlines?country=${country}&category=${currentUser.category}&pageSize=${currentUser.pageSize}&page=${page}&apiKey=9275ce7118d44eedb9e28344637c8fe0`
     );
     const data = await res.json();
-    // console.log(data);
+    console.log(data);
 
     // Gọi hàm hiển thị danh sách tin tức
     displayNewsList(data);
@@ -28,7 +27,7 @@ async function getDataNews(country, page) {
     alert(`Error: ${err.message}`);
   }
 }
-
+getDataNews("us", 1);
 /////////////////////////////////////////////////
 // Kiểm tra số trang để ẩn nút Prev
 function checkBtnPrev() {
