@@ -5,11 +5,11 @@ const inputLastname = document.getElementById("input-lastname");
 const inputUsername = document.getElementById("input-username");
 const inputPassword = document.getElementById("input-password");
 const inputPasswordConfirm = document.getElementById("input-password-confirm");
-const btnSubmit = document.getElementById("btn-submit");
+const btnSubmitRegister = document.getElementById("btn-submit");
 
 ////////////////////////////////////////////////////////
 // Bắt sự kiện ấn vào nút Register
-btnSubmit.addEventListener("click", function () {
+btnSubmitRegister.addEventListener("click", function () {
   //
   const user = new User(
     inputFirstname.value,
@@ -18,9 +18,8 @@ btnSubmit.addEventListener("click", function () {
     inputPassword.value
   );
   // Check validate
-  const isValidate = validate(user);
 
-  if (isValidate) {
+  if (validate(user)) {
     // thêm user vào mảng userArr
     userArr.push(user);
     // lưu dữ liệu vào localStorage
@@ -35,7 +34,7 @@ btnSubmit.addEventListener("click", function () {
 
 ////////////////////////////////////////////////////////
 // Hàm validate
-function validateData(data) {
+function validate(data) {
   // Khai báo biến cờ hiệu
   let isValidate = true;
   // Không có trường nào bị nhập thiếu dữ liệu.
@@ -57,11 +56,23 @@ function validateData(data) {
     isValidate = false;
   }
 
+  // username không trùng
   if (
     !userArr.every((item) => (item.username !== data.username ? true : false))
   ) {
     alert("Username already exists!");
     isValidate = false;
   }
+  // Password phải có hơn 8 ký tự
+  else if (data.password.length <= 8) {
+    alert("Password must have more than 8 character!");
+    isValidate = false;
+  }
+  // Confirm password phải giống với password
+  else if (data.password !== inputPasswordConfirm.value) {
+    alert("Confirm Password was wrong!");
+    isValidate = false;
+  }
+
   return isValidate;
 }
