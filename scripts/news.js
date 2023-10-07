@@ -15,7 +15,7 @@ async function getDataNews(country, page) {
   try {
     // Kết nối với API và lấy dữ liệu
     const res = await fetch(
-      `http://newsapi.org/v2/top-headlines?country=${country}&category=${currentUser.category}&pageSize=${currentUser.pageSize}&page=${page}&apiKey=9275ce7118d44eedb9e28344637c8fe0`
+      `https://newsapi.org/v2/top-headlines?country=${country}&category=${currentUser.category}&pageSize=${currentUser.pageSize}&page=${page}&apiKey=9275ce7118d44eedb9e28344637c8fe0`
     );
     const data = await res.json();
     console.log(data);
