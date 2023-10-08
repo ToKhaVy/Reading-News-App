@@ -39,4 +39,6 @@ function validateSetting() {
     alert("Category was wrong!");
     isValidate = false;
   }
+
+  return isValidate;
 }

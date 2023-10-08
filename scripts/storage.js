@@ -37,7 +37,9 @@ function parseUser(userData) {
     userData.firstname,
     userData.lastname,
     userData.username,
-    userData.password
+    userData.password,
+    userData.pageSize,
+    userData.category
   );
   return user;
 }
