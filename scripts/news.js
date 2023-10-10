@@ -11,9 +11,9 @@ let totalResults = 0;
 getDataNews("us", 1);
 /////////////////////////////////////////////////
 // hàm lấy dữ liệu từ API (bất đồng bộ)
-console.log(currentUser);
-console.log(currentUser.category);
-console.log(currentUser.pageSize);
+// console.log(currentUser);
+// console.log(currentUser.category);
+// console.log(currentUser.pageSize);
 async function getDataNews(country, page) {
   try {
     // Kết nối với API và lấy dữ liệu
